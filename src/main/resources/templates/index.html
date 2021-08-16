@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style type="text/css">
+        .ib{
+            display: inline-block;
+        }
+        .ml20{
+            margin-left: 20px;
+        }
+        .mt20{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<form th:action="@{/user/login}">
+
+    <div>[[#{login.username}]]：<input name="username" th:placeholder="#{login.username}"/></div>
+    <div>[[#{login.password}]]：<input name="password" th:placeholder="#{login.password}"/></div>
+
+    <!-- 判断msg是否为空 -->
+    <p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+
+    <div>
+        <div><button type="submit">[[#{login.btn}]]</button></div>
+    </div>
+</form>
+
+<div class="mt20">
+    <span class="ib"><a th:href="@{/(l='zh_CN')}">中文</a></span>
+    <span class="ib ml20"><a th:href="@{/index.html(l='en_US')}">英文</a></span>
+</div>
+
+</body>
+</html>

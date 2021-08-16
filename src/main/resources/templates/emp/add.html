@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <title>添加员工</title>
+</head>
+<body>
+
+<form th:action="@{/emp}" method="post">
+    <label>姓名</label>
+    <input type="text" name="lastName" placeholder="姓名">
+    <br>
+    <label>邮箱</label>
+    <input type="email" name="email">
+    <br>
+    <label>性别</label>
+    <div>
+        <input type="radio" name="gender" value="0">
+        <label>女</label>
+        <br>
+        <input type="radio" name="gender" value="1">
+        <label>男</label>
+    </div>
+    <label>department</label>
+    <div>
+        <select name="department.id">
+            <option th:each="dept:${departments}" th:text="${dept.getName()}" th:value="${dept.getId()}"></option>
+        </select>
+    </div>
+    <label>日期</label>
+    <input type="text" name="birth">
+    <br>
+    <button type="submit">添加</button>
+</form>
+
+</body>
+</html>
