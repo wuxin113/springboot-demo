@@ -22,6 +22,7 @@ class SpringbootDemoApplicationTests {
 
         Collection<Employee> employees = employeeDao.getAll();
         System.out.println(employees);
+        System.out.println("hello git!");
 
     }
 
